@@ -1,9 +1,10 @@
-Olá,
- Criei esse projeto na IDE NetBeans na versão 8.1, utilizei JSF, Hibernate, Primefaces e Banco de Dados MySQL.
- Citei a IDE, porque já tentei importar para outra IDE, e não consegui rodar a aplicação.
+OlÃ¡,
+ Criei esse projeto na IDE NetBeans na versÃ£o 8.1, utilizei JSF, Hibernate, Primefaces e Banco de Dados MySQL.
+ Citei a IDE, porque jÃ¡ tentei importar para outra IDE, e nÃ£o consegui rodar a aplicaÃ§Ã£o.
+ 
+ TambÃ©m tirei uns prints, da execuÃ§Ã£o do programa que estÃ¡ dentro da pasta /application image
 
-
-Antes de inicializar o programa precisamos primeiro altera a senha e o login, que fica no Pacotes de Código-fonte --> src.dao --> ConexaoDAO.java
+Antes de inicializar o programa precisamos primeiro altera a senha e o login, que fica no Pacotes de CÃ³digo-fonte --> src.dao --> ConexaoDAO.java
 
 
 	public class ConexaoDAO {
@@ -16,7 +17,7 @@ Antes de inicializar o programa precisamos primeiro altera a senha e o login, qu
 	    ...
 
 
-/* CASO NÃO TENHA O DATABASE MYSQL, EXECUTE O COMANDO ABAIXO*/
+/* CASO NÃƒO TENHA O DATABASE MYSQL, EXECUTE O COMANDO ABAIXO*/
 	
 	CREATE DATABASE MYSQL;
 
@@ -33,7 +34,7 @@ Antes de inicializar o programa precisamos primeiro altera a senha e o login, qu
  	 PRIMARY KEY(NUMERO)
 	);
 
-/* CRIANDO A TABELA PARA ARMAZENAR SOLICITAÇÕES DE PAGAMENTO */
+/* CRIANDO A TABELA PARA ARMAZENAR SOLICITAÃ‡Ã•ES DE PAGAMENTO */
 	CREATE TABLE SOLICITACAO(
  	 NUMERO INT UNSIGNED NOT NULL,
   	 DATA_PAGAMENTO VARCHAR(10) NOT NULL,
