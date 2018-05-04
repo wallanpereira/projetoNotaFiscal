@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:p="http://primefaces.org/ui"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             template="template.xhtml">
+
+    <h:form id="frm">
+
+        <p:fieldset legend="Notas Fiscais">
+
+            <p:toolbar>                    
+                <p:toolbarGroup>
+                    <p:commandButton value="Cadastrar" action="#{listaBean.adicionar()}" update=":frm"/>
+                </p:toolbarGroup>               
+            </p:toolbar>
+
+            <p:panelGrid columns="2">                    
+                <p:outputLabel value="Número Nota:"/>
+                <p:inputText value="#{listaBean.analista.numero}" type="number"/>
+
+                <p:outputLabel value="Descrição:"/>
+                <p:inputText value="#{listaBean.analista.descricao}" maxlength="50"/>
+
+                <p:outputLabel value="Data da Fatura:"/>
+                <p:inputText value="#{listaBean.analista.data_fatura}" type="date"/>
+
+                <p:outputLabel value="Data do Pagamento:"/>
+                <p:inputText value="#{listaBean.analista.data_pagamento}" type="date"/>
+
+                <p:outputLabel value="Status"/>
+                <p:inputText value="#{listaBean.analista.status}" maxlength="15" />             
+            </p:panelGrid>
+
+            <br/>
+            <p:dataTable value="#{listaBean.cadastros}" var="lista" resizableColumns="true" rows="8" paginator="true">
+                <p:column headerText="Número da nota" sortBy="#{lista.numero}" filterBy="#{lista.numero}">
+                    <h:outputText value="#{lista.numero}"></h:outputText>
+                </p:column>
+                <p:column headerText="Descrição" sortBy="#{lista.descricao}">
+                    <h:outputText value="#{lista.descricao}"></h:outputText>
+                </p:column>
+                <p:column headerText="Data da Fatura" sortBy="#{lista.data_fatura}">
+                    <h:outputText value="#{lista.data_fatura}"></h:outputText>
+                </p:column>
+                <p:column headerText="Data de Pagamento" sortBy="#{lista.data_pagamento}">
+                    <h:outputText value="#{lista.data_pagamento}"></h:outputText>
+                </p:column>
+                <p:column headerText="Status" sortBy="#{lista.status}">
+                    <h:outputText value="#{lista.status}"></h:outputText>
+                </p:column>
+            </p:dataTable>
+            <br/>
+            
+        </p:fieldset>            
+    </h:form>
+</ui:decorate>
+

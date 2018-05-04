@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:p="http://primefaces.org/ui"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             template="template.xhtml">
+
+    <h:form id="frm">
+        <p:fieldset legend="Gestor - Aprovação e Alteração">
+            <p:toolbar>                    
+                <p:toolbarGroup>
+                    <p:commandButton value="Aprovar" action="#{anteciparBean.adicionarAnte()}" update=":frm"/>
+                    <p:commandButton value="Listar registros" action="#{anteciparBean.listar()}" update=":frm"/>
+                </p:toolbarGroup>           
+            </p:toolbar>
+
+            <p:panelGrid columns="2">                    
+                <p:outputLabel value="Número Nota:"/>
+                <p:inputText value="#{anteciparBean.anteAnalista.numero}" type="number"/>
+
+                <p:outputLabel value="Data Atual do Pagamento:"/>
+                <p:inputText value="#{anteciparBean.anteAnalista.data_pagamento}" type="date"/>
+
+                <p:outputLabel value="Nova Data do Pagamento:"/>
+                <p:inputText value="#{anteciparBean.anteAnalista.solicitar}" type="date"/>             
+                
+                <p:outputLabel value="Status:"/>
+                <p:inputText value="#{anteciparBean.anteAnalista.status}" type="text"/>   
+
+            </p:panelGrid>
+
+            <br/>
+            <p:dataTable value="#{anteciparBean.antecipar}" var="lista" resizableColumns="true" rows="8" paginator="true">
+                <p:column>
+                    <p:commandButton value="Editar" action="#{anteciparBean.alterar(lista)}" update=":frm "></p:commandButton>
+                </p:column>
+                <p:column headerText="Número da nota" sortBy="#{lista.numero}" filterBy="#{lista.numero}">
+                    <h:outputText value="#{lista.numero}"></h:outputText>
+                </p:column>         
+                <p:column headerText="Data Atual" sortBy="#{lista.data_pagamento}">
+                    <h:outputText value="#{lista.data_pagamento}"></h:outputText>
+                </p:column>
+                <p:column headerText="Nova Data" sortBy="#{lista.solicitar}">
+                    <h:outputText value="#{lista.solicitar}"></h:outputText>
+                </p:column>
+                <p:column headerText="Status" sortBy="#{lista.status}">
+                    <h:outputText value="#{lista.status}"></h:outputText>
+                </p:column>
+            </p:dataTable>
+        </p:fieldset>           
+    </h:form> 
+</ui:decorate>
+
