@@ -9,7 +9,7 @@ Antes de inicializar o programa precisamos primeiro altera a senha e o login, qu
 
 	public class ConexaoDAO {
 	    ...
-	    private static String url = "jdbc:mysql://localhost:3306/mysql"; <-- Caso seu tenha um servidor subtistuir "jdbc:mysql://seu-servidor-local:sua-porta/mysql"
+	    private static String url = "jdbc:mysql://localhost:3306/mysql"; <-- Caso você tenha um servidor subtistuir "jdbc:mysql://seu-servidor-local:sua-porta/mysql"
 
 	    private static String login = "seu usuario do banco";
 
